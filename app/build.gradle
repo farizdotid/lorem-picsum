@@ -23,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            applicationIdSuffix ".debug"
+        }
     }
 
     dataBinding {
@@ -38,11 +42,11 @@ android {
     productFlavors {
         free {
             dimension "version"
-            applicationId "com.app.lorempiscum.free"
+            applicationIdSuffix ".free"
         }
         paid {
             dimension "version"
-            applicationId "com.app.lorempiscum.paid"
+            applicationIdSuffix ".paid"
         }
     }
 }
