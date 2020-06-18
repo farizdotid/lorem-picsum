@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.app.lorempiscum.BuildConfig
 import com.app.lorempiscum.R
 import com.app.lorempiscum.base.BaseActivity
 import com.app.lorempiscum.databinding.ActivityMainBinding
@@ -12,7 +13,6 @@ import com.app.lorempiscum.model.local.Image
 import com.app.lorempiscum.ui.adapter.ImagesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class MainActivity() :
     BaseActivity<MainViewModel, ActivityMainBinding>() {
@@ -53,15 +53,15 @@ class MainActivity() :
     }
 
     private fun scrollState() {
-        rvImages.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (!recyclerView.canScrollVertically(1)) {
-                    mPage += 1
-                    imageMainViewModel.getImages(mPage)
+            rvImages.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if (!recyclerView.canScrollVertically(1)) {
+                        mPage += 1
+                        imageMainViewModel.getImages(mPage)
+                    }
                 }
-            }
-        })
+            })
     }
 
 }
